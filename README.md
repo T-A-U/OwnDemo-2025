@@ -1,5 +1,5 @@
-![21 Savage](public/21savage.jpg)
-
+<!-- ![21 Savage](public/21savage.jpg) -->
+![Video Games](public/classic-video-games-console-entertainment_24908-393.webp)
 ## Installation
 
 1. Clone repo
