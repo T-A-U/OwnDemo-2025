@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
     })
     
     res.render('index.ejs', {messages: result})
+  console.log(result)
   })
 })
 
@@ -47,7 +48,6 @@ app.post('/messages', (req, res) => {
 })
 
 app.put('/messages', (req, res) => {
-  console.log(req.body)
   let thumbLogic //added variable for thumbLogic
   // if( req.body.thumbDown){
   if(Object.keys(req.body)[2] == 'thumbDown'){//previous version didnt work, changed to object.keys
@@ -57,8 +57,8 @@ app.put('/messages', (req, res) => {
   }else if(Object.keys(req.body)[2]=='thumbUp'){//previous version didnt work, changed to object.keys
     thumbLogic =req.body.thumbUp +1 //plus 1 for thumb up in dom
   }
-  db.collection('RandomGames')
-  .findOneAndUpdate({title: req.body.title}, {
+  db.collection('messages')
+  .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
     $set: {
       // thumbUp:req.body.thumbUp + 1
       //changing previous line by commenting it out
