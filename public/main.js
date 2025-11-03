@@ -10,7 +10,7 @@ Array.from(thumbUp).forEach(function(element) {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
-            'name': name,
+            'title': name,
             'msg': msg,
             'thumbUp':thumbUp
           })
@@ -35,7 +35,7 @@ Array.from(trash).forEach(function(element) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            'name': name,
+            'title': name,
             'msg': msg
           })
         }).then(function (response) {
@@ -53,7 +53,7 @@ Array.from(thumbDown).forEach(function(element) {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        'name': name,
+        'title': name,
         'msg': msg,
         'thumbDown':thumbDown
       })
