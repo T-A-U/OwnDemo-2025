@@ -9,3 +9,5 @@
 
 1. run `npm run savage`
 2. Navigate to `localhost:3000`
+
+Savage demo converted to our own demo. "Personal express project".

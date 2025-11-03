@@ -5,8 +5,8 @@ const MongoClient = require('mongodb').MongoClient
 
 var db, collection;
 
-const url = "mongodb+srv://T-A-U:UqIHRL9mqMXbANuL@cluster0.htcpnep.mongodb.net/?appName=Cluster0";
-const dbName = "demo";
+const url = "mongodb+srv://T-A-U:qeoft4RRJB5oIzsj@cluster0.htcpnep.mongodb.net/?appName=Cluster0";
+const dbName = "OwnDemoGames";
 
 app.listen(3000, () => {
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
@@ -24,21 +24,24 @@ app.use(bodyParser.json())
 app.use(express.static('public')) // what we put in the public folder we don't need  route it, this line handles it.
 
 app.get('/', (req, res) => {
-  db.collection('messages').find().toArray((err, result) => {
+  db.collection('RandomGames').find().toArray((err, result) => {
     if (err) return console.log(err)
     res.render('index.ejs', {messages: result})
+  console.log(result)
   })
 })
 
 app.post('/messages', (req, res) => {
-  db.collection('messages').insertOne({name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown:0}, (err, result) => {
+  db.collection('RandomGames').insertOne({name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown:0},
+    // upsert: true  
+    (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
     res.redirect('/')
   })
 })
 
-app.put('/messages', (req, res) => {
+app.put('/RandomGames', (req, res) => {
   let thumbLogic //added variable for thumbLogic
   // if( req.body.thumbDown){
   if(Object.keys(req.body)[2] == 'thumbDown'){//previous version didnt work, changed to object.keys
@@ -48,7 +51,7 @@ app.put('/messages', (req, res) => {
   }else if(Object.keys(req.body)[2]=='thumbUp'){//previous version didnt work, changed to object.keys
     thumbLogic =req.body.thumbUp +1 //plus 1 for thumb up in dom
   }
-  db.collection('messages')
+  db.collection('RandomGames')
   .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
     $set: {
       // thumbUp:req.body.thumbUp + 1
@@ -65,7 +68,7 @@ app.put('/messages', (req, res) => {
 })
 
 app.delete('/messages', (req, res) => {
-  db.collection('messages').findOneAndDelete({name: req.body.name, msg: req.body.msg}, (err, result) => {
+  db.collection('RandomGames').findOneAndDelete({name: req.body.name, msg: req.body.msg}, (err, result) => {
     if (err) return res.send(500, err)
     res.send('Message deleted!')
   })
