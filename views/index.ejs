@@ -9,7 +9,7 @@
 </head>
 <body>
   <h1>Own demo</h1>
-  <h2>(Temporary, refactor this project to be an original idea. Maybe videogame forum)</h2>
+  <h2>Ey boys what we playin' tonight? </h2>
 
 
   <h3>Messages</h3>
@@ -17,7 +17,8 @@
   <% for(var i=0; i<messages.length; i++) {%>
     <li class="message">
       <!-- justin helped with below line -->
-      <span><%= messages[i].title %></span> 
+      <span><%= messages[i].name %></span>
+      <span><%= messages[i].title %></span>
       <span></span>
       <!-- justin helped with below line -->
       <span><%= messages[i].thumbUp %></span> 
@@ -37,6 +38,7 @@
   </form>
 
   <script src="main.js"></script>
+  <!-- ideas to make it my own, note taker/todo list, star rating system, wishlist. Maybe go with star rating  -->
 
 </body>
 </html>
