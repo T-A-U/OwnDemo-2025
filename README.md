@@ -10,7 +10,7 @@
 1. run `npm run savage`
 2. Navigate to `localhost:3000`
 
-Savage demo converted to our own demo. "Personal express project". Which in this case is a list of games firends can play. 
+Savage demo converted to our own demo. "Personal express project". Which in this case is a list of games friends can play. 
 
 
 #  Project: Personal Express Project/ Own Demo 
